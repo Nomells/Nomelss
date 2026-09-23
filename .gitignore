@@ -1,0 +1,260 @@
+# ============================================================
+#  Shadows of the Past — .gitignore
+#  Покрывает: Visual Studio, VS Code, CLion, CMake, raylib,
+#             артефакты сборки, файлы игры, Obsidian.
+# ============================================================
+
+# ------------------------------------------------------------
+#  Visual Studio (2015, 2017, 2019, 2022)
+# ------------------------------------------------------------
+
+# Папки сборки и временные файлы VS
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+build/
+Build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+Testing/
+[._]deps/
+
+# Кэш и настройки IntelliSense
+.vs/
+.vscode/
+*.VC.db
+*.VC.VC.opendb
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/compile_commands.json
+
+# Конфигурация проекта Visual Studio
+*.sln.docstates
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.aps
+*.ncb
+*.sdf
+*.opensdf
+*.cachefile
+*.VC.db
+*.VC.opendb
+*.opendb
+*.db
+*.ipch
+*.ipdb
+*.iobj
+*.ilk
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+
+# Временные файлы компилятора
+*.idb
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+
+# Файлы проекта (не коммитим, если генерим через CMake)
+# Если хочешь хранить .sln/.vcxproj — закомментируй строки ниже.
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+*.sln.user
+
+# ------------------------------------------------------------
+#  Артефакты сборки (C++)
+# ------------------------------------------------------------
+*.obj
+*.o
+*.lo
+*.la
+*.al
+*.libs
+*.ko
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Бинарники и отладочные символы
+*.pdb
+*.idb
+*.ilk
+*.exp
+*.map
+
+# ------------------------------------------------------------
+#  CMake
+# ------------------------------------------------------------
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+Testing/
+build/
+Build/
+cmake-build-debug/
+cmake-build-release/
+cmake-build-*/
+
+# ------------------------------------------------------------
+#  CLion / JetBrains
+# ------------------------------------------------------------
+.idea/
+*.iml
+*.iws
+*.ipr
+cmake-build-*/
+
+# ------------------------------------------------------------
+#  VS Code (если используешь)
+# ------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# ------------------------------------------------------------
+#  raylib — собранные библиотеки (если собираешь сам)
+# ------------------------------------------------------------
+raylib/
+raylib-*/
+libraylib.a
+libraylib.so
+libraylib.dylib
+raylib.dll
+raylib.lib
+raylib.exp
+raylib.pdb
+
+# ------------------------------------------------------------
+#  Файлы игры (не должны попасть в репо)
+# ------------------------------------------------------------
+save.txt
+save_*.txt
+*.sav
+*.save
+screenshots/
+recordings/
+*.gif
+*.mp4
+
+# ------------------------------------------------------------
+#  Obsidian (vault в docs/)
+# ------------------------------------------------------------
+docs/.obsidian/
+docs/.trash/
+docs/.obsidian/workspace.json
+docs/.obsidian/workspace-mobile.json
+docs/.DS_Store
+
+# Если хочешь делиться плагинами и темами Obsidian —
+# раскомментируй:
+# !docs/.obsidian/plugins/
+# !docs/.obsidian/themes/
+# !docs/.obsidian/snippets/
+
+# ------------------------------------------------------------
+#  Ассеты — большие файлы и черновики
+# ------------------------------------------------------------
+assets/cache/
+assets/tmp/
+assets/raw/
+assets/*.psd
+assets/*.aseprite
+assets/*.blend
+assets/*.xcf
+assets/*.kra
+*.psd
+*.ase
+*.aseprite
+*.xcf
+*.blend
+*.blend1
+*.kra
+
+# ------------------------------------------------------------
+#  OS-специфичные
+# ------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+Icon?
+*.icloud
+
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ------------------------------------------------------------
+#  Временные и бэкап-файлы
+# ------------------------------------------------------------
+*~
+*.bak
+*.backup
+*.orig
+*.rej
+*.swp
+*.swo
+*.tmp
+*.temp
+*.cache
+.cache/
