@@ -4,10 +4,6 @@
 Вдохновлён **Darkwood**: тьма, ограниченный обзор, безумие как главная угроза.
 Всё в игре — процедурное: графика, звук, музыка. Без внешних ассетов.
 
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blue)]()
-[![Language](https://img.shields.io/badge/C%2B%2B-17-blue)]()
-[![raylib](https://img.shields.io/badge/raylib-5.x-orange)]()
-
 ---
 
 ## 📖 О проекте
@@ -56,9 +52,8 @@ brew install raylib
 ```
 
 **Windows:**
-- Скачать с [github.com/raysan5/raylib/releases](https://github.com/raysan5/raylib/releases)
-- Распаковать в `C:/raylib`
-- Подключить в проект (CMake / MSVC)
+Скачать с [github.com/raysan5/raylib/releases](https://github.com/raysan5/raylib/releases),
+распаковать в `C:/raylib`, подключить в проект.
 
 ### Сборка через CMake
 
@@ -72,23 +67,16 @@ cmake --build build -j
 
 ### Сборка в Visual Studio
 
-1. Открой **`Shadows of the Past.slnx`** двойным кликом.
+1. Открой **`Shadows of the Past.slnx`**.
 2. Платформа: **x64**, конфигурация: **Release**.
-3. **Build → Rebuild Solution** (Ctrl+Shift+B).
+3. **Build → Rebuild Solution** (`Ctrl+Shift+B`).
 4. **F5** — запуск.
 
 Собранный `.exe` появится в:
 ```
 x64\Release\Shadows of the Past.exe
 ```
-Он самодостаточный — raylib слинкован статически, дополнительных `.dll` не нужно.
-
-### Сборка вручную (MSVC)
-
-```cmd
-cl.exe /std:c++17 /EHsc /MD /I src /I C:/raylib/include ^
-    src\*.cpp /link /LIBPATH:C:/raylib/lib raylib.lib winmm.lib gdi32.lib opengl32.lib
-```
+Он самодостаточный — raylib слинкован статически.
 
 ---
 
@@ -108,7 +96,7 @@ cl.exe /std:c++17 /EHsc /MD /I src /I C:/raylib/include ^
 
 **Главное меню:**
 - ↑ / ↓ — навигация
-- Enter — выбрать
+- **Enter** — выбрать
 - **Exit** — единственный способ закрыть игру
 
 ---
@@ -134,12 +122,9 @@ cl.exe /std:c++17 /EHsc /MD /I src /I C:/raylib/include ^
 ### Механики
 
 - **HP** — падает от волков и теней.
-- **Sanity** — падает в темноте и рядом с тенями.
-  При нуле — Game Over «MADNESS».
-- **Score** — 100 за записку, 500 за ключ, 200 за волка,
-  1000 за финал + бонус за скорость.
-- **Враги** — тени (патруль → погоня), волки (агрессивные),
-  босс-тень в церкви (200 HP + миньоны).
+- **Sanity** — падает в темноте и рядом с тенями. При нуле — Game Over «MADNESS».
+- **Score** — 100 за записку, 500 за ключ, 200 за волка, 1000 за финал + бонус за скорость.
+- **Враги** — тени (патруль → погоня), волки (агрессивные), босс-тень в церкви.
 
 ---
 
@@ -158,45 +143,38 @@ cl.exe /std:c++17 /EHsc /MD /I src /I C:/raylib/include ^
 
 ```
 ShadowsOfThePast/
-├── src/                          ← исходный код (модули)
-│   ├── main.cpp                  ← точка входа
-│   ├── Config.h                  ← все константы и цвета
-│   ├── Utils.h / Utils.cpp       ← хелперы (тайлинг текстур)
-│   │
-│   ├── SoundManager.h / .cpp     ← процедурные звуки
-│   ├── MusicManager.h / .cpp     ← процедурная музыка
-│   ├── SaveManager.h / .cpp      ← сохранения / настройки / рекорды
-│   │
-│   ├── Scene.h                   ← базовый класс сцены
-│   ├── GameContext.h             ← общий контекст (настройки, звук)
-│   │
-│   ├── World.h / .cpp            ← локации, карты, объекты
-│   ├── Player.h / .cpp           ← игрок
-│   ├── ShadowCaster.h / .cpp     ← тени от стен и деревьев
-│   ├── Enemy.h                   ← базовый враг (тень, волк)
-│   ├── Dialogue.h / .cpp         ← текстовое окно
-│   ├── DialogueTree.h            ← диалоговое дерево (выборы)
-│   ├── NPC.h                     ← структура NPC
-│   ├── HUD.h / .cpp              ← полоски HP/Sanity
-│   │
-│   ├── MenuScene.h / .cpp        ← главное меню
-│   ├── SettingsScene.h / .cpp    ← настройки
-│   ├── RecordsScene.h / .cpp     ← рекорды
-│   ├── GameplayScene.h / .cpp    ← основной геймплей
-│   │
-│   ├── Game.h / .cpp             ← оркестратор сцен
-│   └── Game2.cpp                 ← старый файл (Excluded From Build)
+├── src/                          ← исходный код
+│   ├── main.cpp
+│   ├── Config.h
+│   ├── Utils.h / Utils.cpp
+│   ├── SoundManager.h / .cpp
+│   ├── MusicManager.h / .cpp
+│   ├── SaveManager.h / .cpp
+│   ├── Scene.h
+│   ├── GameContext.h
+│   ├── World.h / .cpp
+│   ├── Player.h / .cpp
+│   ├── ShadowCaster.h / .cpp
+│   ├── Enemy.h
+│   ├── Dialogue.h / .cpp
+│   ├── DialogueTree.h
+│   ├── NPC.h
+│   ├── HUD.h / .cpp
+│   ├── MenuScene.h / .cpp
+│   ├── SettingsScene.h / .cpp
+│   ├── RecordsScene.h / .cpp
+│   ├── GameplayScene.h / .cpp
+│   └── Game.h / .cpp
 │
-├── assets/                       ← не используется (всё процедурно)
+├── docs/
+│   └── PROJECT.md
 │
-├── docs/                         ← документация
-│   └── PROJECT.md                ← полный GDD + архитектура
-│
-├── save.txt                      ← сохранение (создаётся игрой)
-├── settings.txt                  ← настройки
-├── records.txt                   ← таблица рекордов
+├── save.txt
+├── settings.txt
+├── records.txt
 ├── CMakeLists.txt
 ├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
@@ -204,17 +182,15 @@ ShadowsOfThePast/
 
 ## 📚 Документация
 
-- **[docs/PROJECT.md](docs/PROJECT.md)** — полный дизайн-документ,
-  архитектура, все системы, roadmap.
-- **Obsidian-vault:** открой `docs/` как vault → ссылки `[[...]]`
-  работают, граф связей строится автоматически.
+- **[docs/PROJECT.md](docs/PROJECT.md)** — полный дизайн-документ, архитектура, все системы, roadmap.
+- **Obsidian-vault:** открой `docs/` как vault → ссылки работают.
 
 ---
 
 ## 🗺 Roadmap
 
-### ✅ Готово (этапы 0–17)
-- [x] Каркас: окно, `Game`, `main`, `Config`
+### ✅ Готово
+- [x] Каркас, окно, `Game`, `main`, `Config`
 - [x] Игрок: движение, бег, свет, взгляд за мышью
 - [x] TileMap, коллизии, деревня, лес
 - [x] LightSystem (тьма + конус обзора)
@@ -225,23 +201,22 @@ ShadowsOfThePast/
 - [x] Враги: тени + волки
 - [x] Босс-тень в церкви
 - [x] Сохранения, настройки, рекорды
-- [x] Постобработка (vignette, grain, aberration, desaturation)
+- [x] Постобработка (vignette, grain, aberration)
 - [x] Процедурные звуки и музыка
 - [x] Катсцена + анимация задач
 - [x] YOU DIED заставка в стиле Dark Souls
 - [x] Screen shake + damage flash + boss kill flash
-- [x] Мини-карта (Tab) + Журнал заданий (J)
+- [x] Мини-карта (Tab) + Журнал (J)
 - [x] Реальные тени от стен и деревьев
 - [x] 4 концовки + секретный финал
 
 ### 🚧 В планах
-- [ ] Спрайты игрока (4 направления, анимация ходьбы)
+- [ ] Спрайты игрока (4 направления, анимация)
 - [ ] Спрайты врагов
-- [ ] Больше NPC (бабушка-призрак, ребёнок в школе)
-- [ ] Новые враги (паук в больнице, тень-двойник)
-- [ ] Загрузка между локациями (fade in/out)
+- [ ] Больше NPC
+- [ ] Новые враги
 - [ ] Титры после финала
-- [ ] Локализация на английский
+- [ ] Локализация EN
 
 ---
 
@@ -249,60 +224,23 @@ ShadowsOfThePast/
 
 Игра построена на **сценах** (`Scene` — базовый класс):
 - `Game` хранит текущую сцену и переключает её.
-- `GameContext` — общий контекст: настройки, звук, музыка, флаги.
+- `GameContext` — общий контекст.
 - Каждая сцена изолирована: `update(dt)` + `draw()`.
-- Переходы через `SceneId& nextScene` — сцена пишет новое значение,
-  `Game::run` вызывает `switchScene`.
 
-**Игровой цикл:**
-```cpp
-while (!ctx.shouldQuit) {
-    float dt = GetFrameTime();
-    if (dt > 0.05f) dt = 0.05f;
-    if (WindowShouldClose() && currentId == SceneId::Menu)
-        ctx.shouldQuit = true;
-    ctx.music.update();
-    SceneId before = currentId;
-    currentScene->update(dt);
-    BeginDrawing();
-        currentScene->draw();
-    EndDrawing();
-    if (currentId != before) switchScene(currentId);
-}
-```
+**Управление памятью:** RAII, объекты на стеке, `std::unique_ptr` для динамических.
 
-FPS ограничен через `SetTargetFPS(60)`. `dt` клампится до 0.05 сек
-для защиты от «скачков» при лагах.
-
-**Управление памятью:** RAII, объекты на стеке,
-`std::unique_ptr` для динамических (враги, локации).
-
-**Графика:** всё процедурно — `GenImageColor`,
-`GenImagePerlinNoise`, `LoadTextureFromImage`.
+**Графика:** `GenImageColor`, `GenImagePerlinNoise`, `LoadTextureFromImage`.
 Никаких внешних PNG.
 
-**Звук:** `LoadSoundFromWave` с процедурными Wave'ами
-(синусоиды + шум). `LoadMusicStreamFromMemory` для ambient-музыки.
-
-Подробнее — [docs/PROJECT.md](docs/PROJECT.md).
-
----
-
-## 🛠 Известные ограничения
-
-- **Только Windows** — проект собирается и работает на Windows.
-  Linux и macOS технически возможны, но не тестировались.
-- **Разрешение фиксировано** — 1600×900, смена только через fullscreen.
-- **Одна сложность** — нет меню сложности, баланс единый.
-- **Английский UI** — русский только в комментариях кода.
+**Звук:** `LoadSoundFromWave` с процедурными Wave'ами,
+`LoadMusicStreamFromMemory` для ambient.
 
 ---
 
 ## 📜 Лицензия
 
-- **Код** — MIT (см. [LICENSE](LICENSE)).
-- **Ассеты** — все процедурные, генерируются в рантайме,
-  лицензия не требуется.
+- **Код** — MIT.
+- **Ассеты** — процедурные, лицензия не требуется.
 - **Документация** — CC-BY-4.0.
 
 ---
@@ -310,20 +248,9 @@ FPS ограничен через `SetTargetFPS(60)`. `dt` клампится д
 ## 🤝 Контрибьютинг
 
 Проект личный (учебный), но:
-- 🐛 **Issues** и предложения приветствуются.
-- 🔧 **Merge requests** — только по согласованию.
-- 📝 **Форк** — свободно, но с указанием авторства.
-
----
-
-## 🎬 Скриншоты
-
-*(добавь после релиза)*
-
-- `docs/screenshots/menu.png`
-- `docs/screenshots/village.png`
-- `docs/screenshots/boss.png`
-- `docs/screenshots/ending.png`
+- 🐛 **Issues** приветствуются.
+- 🔧 **Merge requests** — по согласованию.
+- 📝 **Форк** — свободно, с указанием авторства.
 
 ---
 
